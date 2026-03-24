@@ -1,14 +1,27 @@
 # NoteCollab
 
-Built to explore how real-time collaboration can improve how people write, share, and work together.
+A real-time collaborative notes web application that allows users to write, edit, and share notes together.
 
-NoteCollab is a real-time collaborative notes web application where users can create, edit, and share notes with others.
+## Overview
+NoteCollab focuses on making collaboration seamless by enabling multiple users to work on the same notes in real time.
 
 ## Features
-- Real-time note editing
-- Note saving
-- Sharing with others
-- Collaborative workspace
+- Real-time note editing  
+- Multi-user collaboration  
+- Shared workspaces  
+- Cloud-based note storage  
+
+## Tech Stack
+- Web application architecture  
+- Real-time systems (planned implementation)  
+
+## Why I Built This
+Most note-taking tools are built for individuals. NoteCollab explores how collaboration can be made more natural and efficient.
 
 ## Status
-Concept and structure created. Further development planned.
+Concept and structure created. Development planned.
+
+## Future Improvements
+- Live cursor tracking  
+- Version history  
+- Commenting system  
