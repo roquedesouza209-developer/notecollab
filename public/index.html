@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoteCollab</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-left"></div>
+    <div class="ambient ambient-right"></div>
+
+    <main class="app-shell">
+      <aside class="sidebar panel">
+        <div class="brand">
+          <div class="brand-mark">NC</div>
+          <div>
+            <p class="eyebrow">Shared ideas in motion</p>
+            <h1>NoteCollab</h1>
+          </div>
+        </div>
+
+        <p class="sidebar-copy">
+          Write, save, share, and export notes from one calm workspace built for fast collaboration.
+        </p>
+
+        <div class="sidebar-actions">
+          <button id="create-note-btn" class="primary-btn" type="button">Create New Note</button>
+          <div class="feature-list">
+            <span class="feature-pill">Autosave</span>
+            <span class="feature-pill">Live sync</span>
+            <span class="feature-pill">Export ready</span>
+          </div>
+        </div>
+
+        <section class="notes-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Workspace</p>
+              <h2>Your notes</h2>
+            </div>
+            <span id="note-count" class="count-pill">0</span>
+          </div>
+
+          <div id="notes-list" class="notes-list" aria-live="polite"></div>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <header class="workspace-header panel">
+          <div class="header-copy">
+            <p class="eyebrow">Focused editor</p>
+            <input
+              id="note-title-input"
+              class="title-input"
+              type="text"
+              maxlength="120"
+              placeholder="Untitled note"
+              aria-label="Note title"
+            />
+          </div>
+
+          <div class="toolbar">
+            <button id="save-note-btn" class="secondary-btn" type="button">Save now</button>
+            <a id="export-txt-btn" class="toolbar-link" href="#" download>TXT</a>
+            <a id="export-pdf-btn" class="toolbar-link" href="#" download>PDF</a>
+          </div>
+        </header>
+
+        <div class="workspace-grid">
+          <section class="editor-card panel">
+            <div class="status-grid">
+              <div class="status-item">
+                <span class="status-label">Save status</span>
+                <strong id="save-state">Loading...</strong>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Collaborators</span>
+                <strong id="presence-count">0 viewing</strong>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Words</span>
+                <strong id="word-count">0</strong>
+              </div>
+              <div class="status-item">
+                <span class="status-label">Last updated</span>
+                <strong id="updated-at">-</strong>
+              </div>
+            </div>
+
+            <textarea
+              id="note-editor"
+              class="note-editor"
+              placeholder="Start typing your ideas here..."
+              aria-label="Note editor"
+            ></textarea>
+          </section>
+
+          <aside class="themes-card panel">
+            <div class="section-heading compact">
+              <div>
+                <p class="eyebrow">Personalize</p>
+                <h2>Themes</h2>
+              </div>
+            </div>
+
+            <div id="theme-grid" class="theme-grid"></div>
+
+            <div class="extras-card">
+              <h3>Included extras</h3>
+              <ul>
+                <li>Keyboard shortcut: <span>Ctrl/Cmd + S</span></li>
+                <li>Live note presence counter</li>
+                <li>Persistent theme preference</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <button id="support-trigger" class="support-trigger" type="button">
+      <span class="support-dot"></span>
+      Support
+    </button>
+
+    <div id="support-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+
+      <div class="modal-card panel" role="dialog" aria-modal="true" aria-labelledby="support-title">
+        <button id="support-close" class="modal-close" type="button" aria-label="Close support form">
+          Close
+        </button>
+
+        <p class="eyebrow">Need a hand?</p>
+        <h2 id="support-title">Contact support</h2>
+        <p class="modal-copy">
+          Send us your email and message. We will save it and follow up from the support inbox.
+        </p>
+
+        <form id="support-form" class="support-form" novalidate>
+          <label for="support-email">Email</label>
+          <input id="support-email" name="email" type="email" placeholder="you@example.com" />
+          <p id="support-email-error" class="field-error" aria-live="polite"></p>
+
+          <label for="support-message">Message</label>
+          <textarea
+            id="support-message"
+            name="message"
+            rows="5"
+            placeholder="Tell us what you need help with..."
+          ></textarea>
+          <p id="support-message-error" class="field-error" aria-live="polite"></p>
+
+          <button id="support-send" class="primary-btn" type="submit">Send request</button>
+          <p id="support-success" class="success-message hidden" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  </body>
+</html>

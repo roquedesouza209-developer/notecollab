@@ -1,27 +1,45 @@
 # NoteCollab
 
-A real-time collaborative notes web application that allows users to write, edit, and share notes together.
+NoteCollab is a real-time collaborative notes web app for writing, saving, exporting, and sharing notes in one lightweight workspace.
 
-## Overview
-NoteCollab focuses on making collaboration seamless by enabling multiple users to work on the same notes in real time.
+## What is included
+- Write and save notes inside the app
+- Real-time note syncing across multiple open clients using server-sent events
+- Download notes as `.txt` or `.pdf`
+- Theme switcher with `Light`, `Dark`, `System`, `Summer`, `Autumn`, `Winter`, `Spring`, `Ocean`, and `Sunset`
+- Floating support widget in the bottom-right corner
+- Support form validation and SQLite-backed support request storage
+- Autosave, manual save, word count, and active viewer count
 
-## Features
-- Real-time note editing  
-- Multi-user collaboration  
-- Shared workspaces  
-- Cloud-based note storage  
+## Tech stack
+- Node.js 24
+- Native `node:sqlite` database
+- Vanilla HTML, CSS, and JavaScript
+- Server-sent events for live updates
 
-## Tech Stack
-- Web application architecture  
-- Real-time systems (planned implementation)  
+## Run locally
+1. Make sure you are using Node.js `24+`
+2. Start the app:
 
-## Why I Built This
-Most note-taking tools are built for individuals. NoteCollab explores how collaboration can be made more natural and efficient.
+```bash
+npm run dev
+```
 
-## Status
-Concept and structure created. Development planned.
+3. Open [http://localhost:3000](http://localhost:3000)
 
-## Future Improvements
-- Live cursor tracking  
-- Version history  
-- Commenting system  
+## Project structure
+- `server.js`: HTTP server, API routes, SQLite storage, exports, and live collaboration events
+- `public/index.html`: app layout
+- `public/styles.css`: responsive UI and theme styling
+- `public/app.js`: client-side state, autosave, live sync, support modal, and theme switching
+
+## Notes
+- The current collaboration model is `last write wins`, which keeps the first version simple and fast.
+- Support requests are stored in `data/notecollab.db`.
+
+## Good next upgrades
+- Shared links or authentication
+- Live cursor presence
+- Rich text editing
+- Version history and restore
+- Comments and mentions
